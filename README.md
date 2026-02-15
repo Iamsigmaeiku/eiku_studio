@@ -183,7 +183,7 @@ eiku_studio/
 
 ## 🤝 支援
 
-如有問題，請聯絡：hello@eikustudio.com
+如有問題，請聯絡：eikustudio@gmail.com
 
 ## 📄 授權
 
