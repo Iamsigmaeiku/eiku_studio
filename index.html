@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eiku studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">eiku studio</a>
+            <ul class="nav-menu">
+                <li><a href="#services">服務</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#booking">預約諮詢</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="切換深淺模式">
+                <span class="theme-icon"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">eiku studio</h1>
+                <p class="hero-subtitle">STEAM 教育 × 嵌入式工程 × 品牌設計</p>
+                <p class="hero-description">從創新教育到技術實現，打造完整的數位解決方案</p>
+                <div class="hero-services">
+                    <span class="hero-tag">STEAM 教育</span>
+                    <span class="hero-tag">嵌入式系統</span>
+                    <span class="hero-tag">視覺設計</span>
+                </div>
+                <a href="#services" class="cta-button">探索服務</a>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2 class="section-title">我們的服務</h2>
+            
+            <!-- Service 1: STEAM 教育 -->
+            <article class="service-block steam">
+                <div class="service-number">01</div>
+                <div class="service-content">
+                    <h3 class="service-title">STEAM 教育</h3>
+                    <p class="service-tagline">培養下一代的創新思維</p>
+                    <p class="service-description">
+                        提供完整的 STEAM（科學、技術、工程、藝術、數學）教育課程與工作坊。
+                        透過動手實作、專案導向學習，激發學生的創造力與問題解決能力。
+                    </p>
+                    <ul class="service-features">
+                        <li>Arduino 與 Raspberry Pi 實作課程</li>
+                        <li>機器人與自動化專題</li>
+                        <li>創客教育工作坊</li>
+                        <li>客製化校園課程設計</li>
+                    </ul>
+                    <a href="#booking" class="service-cta">預約課程諮詢</a>
+                </div>
+            </article>
+
+            <!-- Service 2: 嵌入式工程 -->
+            <article class="service-block embedded">
+                <div class="service-number">02</div>
+                <div class="service-content">
+                    <h3 class="service-title">嵌入式系統開發</h3>
+                    <p class="service-tagline">從原型到量產的技術夥伴</p>
+                    <p class="service-description">
+                        專業的嵌入式系統與韌體開發服務，協助您的硬體產品從概念到實現。
+                        具備完整的開發、測試與優化經驗。
+                    </p>
+                    <ul class="service-features">
+                        <li>MCU/SoC 韌體開發（STM32, ESP32, nRF）</li>
+                        <li>IoT 物聯網系統整合</li>
+                        <li>電路設計與 PCB Layout</li>
+                        <li>產品原型開發與驗證</li>
+                    </ul>
+                    <a href="#booking" class="service-cta">討論您的專案</a>
+                </div>
+            </article>
+
+            <!-- Service 3: 設計服務 -->
+            <article class="service-block design">
+                <div class="service-number">03</div>
+                <div class="service-content">
+                    <h3 class="service-title">品牌與視覺設計</h3>
+                    <p class="service-tagline">打造獨特的品牌識別</p>
+                    <p class="service-description">
+                        提供專業的品牌設計服務，從 Logo 設計到完整的視覺識別系統，
+                        幫助您的品牌在市場中脫穎而出。
+                    </p>
+                    <ul class="service-features">
+                        <li>Logo 設計與品牌識別</li>
+                        <li>名片與文宣設計</li>
+                        <li>社群媒體視覺設計</li>
+                        <li>廣告素材製作</li>
+                    </ul>
+                    <a href="#booking" class="service-cta">開始設計之旅</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <h2 class="section-title">精選案例</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image steam-bg"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">STEAM 教育</span>
+                        <h3>校園創客課程</h3>
+                        <p>為國中生設計的 Arduino 機器人課程</p>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image embedded-bg"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">嵌入式工程</span>
+                        <h3>智慧環境監測系統</h3>
+                        <p>ESP32 + LoRa 物聯網解決方案</p>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image design-bg"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">品牌設計</span>
+                        <h3>新創品牌識別</h3>
+                        <p>完整 CI/VI 設計與應用</p>
+                    </div>
+                </article>
+                
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image mixed-bg"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">整合專案</span>
+                        <h3>互動裝置開發</h3>
+                        <p>結合硬體開發與視覺設計</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking-section">
+            <h2 class="section-title">預約諮詢</h2>
+            <p class="booking-intro">選擇適合的時段，讓我們深入討論您的需求</p>
+            
+            <!-- 這裡放置 Calendly 嵌入代碼 -->
+            <div class="booking-container">
+                <div class="booking-placeholder">
+                    <div class="booking-icon">📅</div>
+                    <h3>預約系統整合區</h3>
+                    <p>請前往 <a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a> 或 <a href="https://www.setmore.com" target="_blank" rel="noopener">Setmore</a> 註冊免費帳號</p>
+                    <p>註冊後，將嵌入代碼貼到這個區塊即可</p>
+                    <code class="booking-code">
+                        &lt;!-- Calendly inline widget begin --&gt;<br>
+                        &lt;div class="calendly-inline-widget" 
+                             data-url="https://calendly.com/your-link"&gt;
+                        &lt;/div&gt;<br>
+                        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;<br>
+                        &lt;!-- Calendly inline widget end --&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">關於 eiku studio</h2>
+                <div class="about-text">
+                    <p class="about-intro">整合教育、技術與設計的創新工作室</p>
+                    <p>我們相信透過 STEAM 教育啟發創意思維，運用嵌入式技術實現創新想法，
+                    並以專業設計呈現品牌價值。從教學、開發到設計，我們提供完整的解決方案。</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">教育專案</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">工程案例</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">設計作品</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">聯絡我們</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p class="contact-text">有任何問題或合作機會？</p>
+                    <p class="contact-subtitle">填寫表單或直接聯繫我們</p>
+                    <div class="contact-details">
+                        <a href="mailto:hello@eikustudio.com" class="contact-link">
+                            <span class="contact-icon">✉️</span>
+                            hello@eikustudio.com
+                        </a>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                            <a href="#" class="social-link" aria-label="Twitter">TW</a>
+                            <a href="#" class="social-link" aria-label="Behance">BE</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <!-- Formspree 表單 -->
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                        <div class="form-note">
+                            <strong>📝 設定說明：</strong> 請前往 <a href="https://formspree.io" target="_blank" rel="noopener">formspree.io</a> 註冊並取得您的 Form ID，然後替換上方的 YOUR_FORM_ID
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required placeholder="您的姓名">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">感興趣的服務</label>
+                            <select id="service" name="service" required>
+                                <option value="">請選擇...</option>
+                                <option value="steam">STEAM 教育課程</option>
+                                <option value="embedded">嵌入式系統開發</option>
+                                <option value="design">品牌與視覺設計</option>
+                                <option value="multiple">多項服務整合</option>
+                                <option value="other">其他諮詢</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">訊息內容</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="請簡述您的需求或想法..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">送出訊息</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 eiku studio. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html
