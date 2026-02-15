@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Contacts collection - 任何人可新增，只有管理員可讀取
+    match /contacts/{contactId} {
+      // 允許任何人新增聯絡表單（無需認證）
+      allow create: if request.auth == null 
+                    && request.resource.data.keys().hasAll(['name', 'email', 'service', 'message'])
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.email.matches('.*@.*\\..*')
+                    && request.resource.data.service is string
+                    && request.resource.data.message is string;
+      
+      // 只有已認證的管理員可以讀取、更新、刪除
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Bookings collection - 儲存 Calendly 預約資料
+    match /bookings/{bookingId} {
+      // 允許任何人新增預約（從 Calendly webhook）
+      allow create: if request.auth == null;
+      
+      // 只有已認證的管理員可以讀取、更新、刪除
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Portfolio collection - 作品集（未來可能需要）
+    match /portfolio/{portfolioId} {
+      // 任何人可讀取作品集
+      allow read: if true;
+      
+      // 只有管理員可以新增、更新、刪除
+      allow create, update, delete: if request.auth != null;
+    }
+    
+    // 預設拒絕所有其他操作
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

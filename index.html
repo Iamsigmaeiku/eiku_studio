@@ -157,20 +157,21 @@
             <p class="booking-intro">選擇適合的時段，讓我們深入討論您的需求</p>
             
             <!-- 這裡放置 Calendly 嵌入代碼 -->
+            <!-- 請參考 CALENDLY_SETUP.md 完成設定 -->
             <div class="booking-container">
                 <div class="booking-placeholder">
                     <div class="booking-icon">📅</div>
-                    <h3>預約系統整合區</h3>
-                    <p>請前往 <a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a> 或 <a href="https://www.setmore.com" target="_blank" rel="noopener">Setmore</a> 註冊免費帳號</p>
-                    <p>註冊後，將嵌入代碼貼到這個區塊即可</p>
-                    <code class="booking-code">
-                        &lt;!-- Calendly inline widget begin --&gt;<br>
-                        &lt;div class="calendly-inline-widget" 
-                             data-url="https://calendly.com/your-link"&gt;
-                        &lt;/div&gt;<br>
-                        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;<br>
-                        &lt;!-- Calendly inline widget end --&gt;
-                    </code>
+                    <h3>預約系統設定</h3>
+                    <p>請參考專案根目錄的 <code>CALENDLY_SETUP.md</code> 完成 Calendly 設定</p>
+                    <ol style="text-align: left; max-width: 500px; margin: 1rem auto;">
+                        <li>前往 <a href="https://calendly.com" target="_blank" rel="noopener">calendly.com</a> 註冊免費帳號</li>
+                        <li>建立活動類型（例如：30 分鐘諮詢）</li>
+                        <li>取得嵌入代碼</li>
+                        <li>將整個 <code>&lt;div class="booking-placeholder"&gt;...&lt;/div&gt;</code> 替換成 Calendly 提供的代碼</li>
+                    </ol>
+                    <p style="margin-top: 1.5rem; padding: 1rem; background: var(--card-bg); border-radius: 8px;">
+                        <strong>提示：</strong>免費方案包含無限預約、Google Calendar 同步、自動提醒等功能
+                    </p>
                 </div>
             </div>
         </section>
@@ -224,7 +225,7 @@
                     <!-- Formspree 表單 -->
                     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
                         <div class="form-note">
-                            <strong>📝 設定說明：</strong> 請前往 <a href="https://formspree.io" target="_blank" rel="noopener">formspree.io</a> 註冊並取得您的 Form ID，然後替換上方的 YOUR_FORM_ID
+                            <strong>📝 設定說明：</strong> 請參考 <code>FORMSPREE_SETUP.md</code> 完成 Formspree 設定，取得 Form ID 後替換上方的 YOUR_FORM_ID
                         </div>
                         
                         <div class="form-group">
@@ -265,6 +266,14 @@
         <p>&copy; 2026 eiku studio. All rights reserved.</p>
     </footer>
 
+    <!-- Firebase SDK (使用 compat 版本以保持簡單) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase 配置 -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- 主要腳本 -->
     <script src="script.js"></script>
 </body>
 </html

@@ -1,177 +1,203 @@
-# ⚡ 快速開始指南
+# 快速開始指南
 
-## 🎯 5 分鐘讓網站上線
+最快 30 分鐘完成免費部署！
 
-### 1️⃣ 預覽網站（現在就可以！）
+## ⏱️ 時間估算
 
-**Mac：**
+- Firebase 設定：10 分鐘
+- Netlify 部署：5 分鐘
+- Formspree 設定：5 分鐘
+- Calendly 設定：10 分鐘（可選）
+- 測試：5-10 分鐘
+
+**總計：約 30-40 分鐘**
+
+## 🎯 三步驟快速部署
+
+### Step 1️⃣: Firebase（10 分鐘）
+
 ```bash
-cd /Applications/eiku_studio
-open index.html
+# 1. 安裝 Firebase CLI
+npm install -g firebase-tools
+
+# 2. 登入
+firebase login
+
+# 3. 在 Firebase Console 建立專案
+# 前往 https://console.firebase.google.com/
+# 點擊「新增專案」，名稱：eiku-studio
+
+# 4. 啟用 Firestore
+# Firebase Console → Firestore Database → 建立資料庫
+# 選擇「測試模式」+ 位置（asia-east1）
+
+# 5. 取得 Firebase 配置
+# 專案設定 → 你的應用程式 → 網頁 </> → 註冊應用程式
+# 複製 firebaseConfig
+
+# 6. 更新 firebase-config.js
+# 把 YOUR_API_KEY 等替換成你的實際值
+
+# 7. 連結專案
+firebase use --add
+# 選擇你的專案，設定別名 default
+
+# 8. 部署規則
+firebase deploy --only firestore:rules
 ```
 
-**或直接用 Finder：**
-- 找到 `index.html` 檔案
-- 雙擊開啟
+✅ Firebase 設定完成！
 
-✨ 網站就在你的瀏覽器中！
+### Step 2️⃣: Git + Netlify（5 分鐘）
 
----
+```bash
+# 1. 初始化 Git（如果還沒）
+git init
+git add .
+git commit -m "Initial commit: eiku studio website"
 
-### 2️⃣ 必做設定（5 分鐘）
+# 2. 推送到 GitHub
+# 在 GitHub 建立新 repository: eiku_studio
+git remote add origin https://github.com/YOUR_USERNAME/eiku_studio.git
+git push -u origin main
 
-#### A. 設定聯絡表單
+# 3. 部署到 Netlify
+# 前往 https://app.netlify.com/
+# Add new site → Import from Git
+# 選擇你的 repository
+# Build command: 留空
+# Publish directory: .
+# Deploy site
 
-1. 開啟瀏覽器，前往：https://formspree.io
-2. 點擊 "Get Started" 註冊（用 Email 或 GitHub）
-3. 建立新表單 "New Form"
-4. 複製你的 Form ID（格式：`xxxxxxxxx`）
-5. 用編輯器開啟 `index.html`
-6. 搜尋：`YOUR_FORM_ID`
-7. 替換成你的實際 ID
-8. 儲存檔案
-
-✅ 完成！表單可以使用了（每月免費 100 次提交）
-
-#### B. 設定預約系統
-
-**選項 1 - Calendly（推薦）：**
-1. 前往：https://calendly.com → Sign Up
-2. 設定你的可預約時段
-3. 完成後，點擊 "Share" → "Add to website"
-4. 複製嵌入代碼
-5. 在 `index.html` 找到 `booking-placeholder` 區塊
-6. 用嵌入代碼替換整個 `booking-placeholder` div
-
-**選項 2 - Setmore：**
-1. 前往：https://www.setmore.com → Sign Up Free
-2. 設定服務和時間
-3. 取得嵌入代碼
-4. 同樣方式替換到 `booking-placeholder`
-
-✅ 完成！客戶可以直接預約了
-
----
-
-### 3️⃣ 部署上線（3 分鐘）
-
-**最簡單方法 - Netlify 拖放：**
-
-1. 前往：https://www.netlify.com → Sign up
-2. 登入後，看到 "Drag and drop your site" 區域
-3. **把整個 `eiku_studio` 資料夾拖進去**
-4. 等待 30 秒
-5. 🎉 完成！你會得到網址：`https://xxx.netlify.app`
-
-**自訂網址（可選）：**
-- 點擊 "Site settings"
-- "Change site name" → 輸入 `eiku-studio`
-- 新網址：`https://eiku-studio.netlify.app`
-
----
-
-### 4️⃣ 更新內容（隨時）
-
-#### 更新文字內容：
-
-在 `index.html` 中搜尋並替換：
-
-| 要改的內容 | 搜尋關鍵字 | 位置 |
-|----------|---------|------|
-| Email | `hello@eikustudio.com` | 聯絡區域 |
-| 服務描述 | `service-description` | 三個服務區塊 |
-| 作品案例 | `portfolio-card` | 作品集區域 |
-| 統計數字 | `stat-number` | 關於區域 |
-
-#### 更換作品圖片：
-
-1. 準備圖片（建議尺寸：1600x1000px）
-2. 放到 `eiku_studio` 資料夾
-3. 在 `index.html` 找到：
-   ```html
-   <div class="placeholder-image steam-bg"></div>
-   ```
-4. 改成：
-   ```html
-   <img src="your-image.jpg" alt="專案名稱">
-   ```
-
-#### 修改配色：
-
-開啟 `styles.css`，找到最上方的 `:root`：
-
-```css
-:root {
-  --accent: #0066ff;  /* 改這裡！主要顏色 */
-  --steam-color: #00ff88;
-  --embedded-color: #0066ff;
-  --design-color: #ff0066;
-}
+# 4. 自訂網域名稱（可選）
+# Site settings → Change site name → eiku-studio
+# 網址變成：https://eiku-studio.netlify.app
 ```
 
-儲存後重新載入網頁就能看到效果。
+✅ 網站上線了！
 
----
+### Step 3️⃣: Formspree（5 分鐘）
 
-## 📱 測試清單
+```bash
+# 1. 註冊 Formspree
+# 前往 https://formspree.io/
+# 用 Google 登入
 
-部署前確認：
+# 2. 建立表單
+# New Form → Name: eiku studio contact
+# Email: eikustudio@gmail.com
 
-- [ ] 在電腦瀏覽器開啟正常
-- [ ] 在手機瀏覽器開啟正常
-- [ ] 深淺模式切換正常（點右上角圓形按鈕）
-- [ ] 所有導航連結都能跳轉
-- [ ] 表單可以提交（測試一次）
-- [ ] Email 和社群連結都正確
+# 3. 取得 Form ID（例如：mwpebvlo）
 
----
+# 4. 更新 index.html
+# 找到第 225 行：
+# action="https://formspree.io/f/YOUR_FORM_ID"
+# 改成：
+# action="https://formspree.io/f/mwpebvlo"
 
-## 🚀 下一步
+# 5. 推送更新
+git add index.html
+git commit -m "Update Formspree form ID"
+git push
 
-完成基本設定後：
+# Netlify 會自動重新部署（約 1-2 分鐘）
+```
 
-1. **收集素材**
-   - 拍攝/收集專案照片
-   - 準備案例說明文字
-   - 整理服務項目細節
+✅ 表單功能完成！
 
-2. **優化內容**
-   - 撰寫吸引人的服務描述
-   - 展示最佳作品
-   - 加入客戶評價（可選）
+## 🧪 快速測試
 
-3. **推廣網站**
-   - 在社群媒體分享
-   - 加入 Google 搜尋（Google Search Console）
-   - 印製名片/文宣時加上網址
+### 1. 測試網站載入
+```
+開啟：https://eiku-studio.netlify.app
+確認：網站正常顯示，沒有錯誤
+```
 
-4. **持續更新**
-   - 定期新增作品案例
-   - 更新服務內容
-   - 分享部落格文章（未來功能）
+### 2. 測試表單提交
+```
+1. 填寫聯絡表單
+2. 提交
+3. 確認：
+   ✅ 顯示成功訊息
+   ✅ Firebase Console → Firestore → contacts 有新資料
+   ✅ 收到 Formspree email（第一次需確認）
+```
 
----
+### 3. 測試主題切換
+```
+點擊右上角主題按鈕
+確認：深淺色切換正常
+```
 
-## 💡 進階功能
+## ✨ 完成！
 
-想要更多功能？
+你的網站已經上線並可以接收客戶聯絡了！
 
-- **部落格**：使用 Decap CMS 或手寫 HTML 文章
-- **多語言**：複製 HTML 建立英文版
-- **分析工具**：加入 Google Analytics 追蹤流量
-- **SEO 優化**：提交網站地圖到搜尋引擎
-- **效能優化**：壓縮圖片、使用 WebP 格式
+## 🔄 下一步（可選）
 
-詳見 `README.md` 和 `DEPLOY.md`
+### 加入 Calendly 預約（10 分鐘）
 
----
+```bash
+# 1. 註冊 Calendly
+# 前往 https://calendly.com/
+# 用 Google 登入
 
-## ❓ 需要幫助？
+# 2. 連結 Google Calendar
+# Settings → Calendars → Connect Calendar
 
-- 📖 完整說明：見 `README.md`
-- 🚀 部署問題：見 `DEPLOY.md`
-- 📧 其他問題：hello@eikustudio.com
+# 3. 建立活動
+# Event Types → Create
+# Name: eiku studio 諮詢
+# Duration: 30 分鐘
+# Location: Google Meet
 
----
+# 4. 取得嵌入代碼
+# 點擊活動 → Add to Website → 複製 Inline Embed
 
-**開始你的 Vibecoding 之旅！** 🎉
+# 5. 更新 index.html
+# 找到第 160-175 行的 booking-placeholder
+# 整個替換成 Calendly 代碼
+
+# 6. 推送更新
+git add index.html
+git commit -m "Add Calendly booking widget"
+git push
+```
+
+### 加入 Google Analytics（5 分鐘）
+
+```html
+<!-- 在 index.html <head> 加入 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+## 📝 完整文件
+
+需要更詳細的說明？參考：
+- [`README.md`](README.md) - 完整概覽
+- [`FIREBASE_SETUP.md`](FIREBASE_SETUP.md) - Firebase 詳細設定
+- [`TESTING_GUIDE.md`](TESTING_GUIDE.md) - 完整測試流程
+
+## 🆘 需要幫助？
+
+遇到問題查看：
+- [`TESTING_GUIDE.md`](TESTING_GUIDE.md) 的故障排除章節
+- Firebase Console 錯誤訊息
+- 瀏覽器開發者工具 Console
+
+## 🎉 恭喜！
+
+你已經用完全免費的方式部署了一個專業網站，包含：
+- ✅ 前端網站（Netlify）
+- ✅ 後端資料庫（Firebase）
+- ✅ 表單處理（Formspree）
+- ✅ 自動 HTTPS
+- ✅ 全球 CDN
+
+而且全部 $0/月！
