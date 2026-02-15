@@ -244,6 +244,7 @@ body {
 }
 
 .hero-tag {
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   background: var(--accent-light);
   border: 1px solid var(--accent);
@@ -253,12 +254,15 @@ body {
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .hero-tag:hover {
   background: var(--accent);
   color: white;
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .cta-button {
@@ -456,6 +460,17 @@ section {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.05);
 }
 
 .placeholder-image {
@@ -795,6 +810,533 @@ section {
   box-shadow: 0 15px 40px var(--shadow-hover);
 }
 
+/* ========================================
+   SERVICE DETAIL PAGES STYLES
+   ======================================== */
+
+/* Service Hero Section */
+.service-hero {
+  padding: 10rem 2rem 6rem;
+  background: var(--bg-secondary);
+  text-align: center;
+  position: relative;
+}
+
+.service-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.service-number-large {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(6rem, 15vw, 10rem);
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.1;
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  line-height: 1;
+}
+
+.service-hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-hero-tagline {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.service-hero-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Service Details Section */
+.service-details-section {
+  padding: 6rem 2rem;
+}
+
+.service-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-intro {
+  max-width: 900px;
+  margin: 0 auto 6rem;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Service Offerings Grid */
+.service-offerings,
+.service-cases,
+.service-process,
+.service-tech,
+.service-audience,
+.service-packages {
+  margin-bottom: 6rem;
+}
+
+.offerings-grid,
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.offering-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.offering-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.offering-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.offering-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.offering-card > p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.offering-features {
+  list-style: none;
+  padding: 0;
+}
+
+.offering-features li {
+  padding: 0.6rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.offering-features li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.offering-features li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Process Timeline */
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-step {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  border: 2px solid var(--accent);
+}
+
+.process-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.process-step p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Case Studies */
+.case-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--shadow-hover);
+}
+
+.case-card.featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0;
+}
+
+.case-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.case-card.featured .case-image {
+  aspect-ratio: 1 / 1;
+}
+
+.case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.case-card:hover .case-image img,
+.case-card:hover .placeholder-image {
+  transform: scale(1.05);
+}
+
+.case-content {
+  padding: 2rem;
+}
+
+.case-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.case-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.case-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.case-info,
+.case-outcomes,
+.case-tech,
+.case-deliverables {
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  display: inline-block;
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.case-outcomes strong,
+.case-tech strong,
+.case-deliverables strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.case-outcomes ul,
+.case-tech ul,
+.case-deliverables ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.case-outcomes li,
+.case-tech li,
+.case-deliverables li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.case-outcomes li::before,
+.case-tech li::before,
+.case-deliverables li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Technology Categories */
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tech-category {
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.tech-category h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.tech-category p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Audience Grid */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.audience-item {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.audience-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.audience-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.audience-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Package Cards */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.package-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--shadow-hover);
+}
+
+.package-card.highlight {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.package-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.package-name {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.package-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.package-includes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.package-includes li {
+  padding: 0.8rem 0 0.8rem 2rem;
+  position: relative;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.package-includes li:last-child {
+  border-bottom: none;
+}
+
+.package-includes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.package-suitable {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.packages-note {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Service CTA Section */
+.service-cta-section {
+  background: var(--bg-secondary);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.service-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-cta-content h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.service-cta-content p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.cta-button.secondary:hover {
+  background: var(--accent);
+  color: white;
+}
+
 /* Footer */
 .footer {
   padding: 3rem 2rem;
@@ -876,6 +1418,20 @@ section {
   .social-links {
     flex-wrap: wrap;
   }
+
+  /* Service Detail Pages - Tablet */
+  .case-card.featured {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+
+  .service-hero {
+    padding: 8rem 2rem 5rem;
+  }
+
+  .process-timeline {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
@@ -899,5 +1455,41 @@ section {
 
   .about-stats {
     grid-template-columns: 1fr;
+  }
+
+  /* Service Detail Pages - Mobile */
+  .service-hero {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  .service-number-large {
+    font-size: 5rem;
+    top: -2rem;
+  }
+
+  .offerings-grid,
+  .cases-grid,
+  .audience-grid,
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .offering-card,
+  .process-step,
+  .audience-item,
+  .package-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
   }
 }
